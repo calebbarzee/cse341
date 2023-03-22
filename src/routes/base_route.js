@@ -1,8 +1,6 @@
-const router = require('express').Router();
+const router = require("express").Router();
+const base_controller = require("../controllers/base_controller.js");
 
-router.get("/", (req, res) => {
-  // send back name in response
-  res.send("Caleb Barzee");
-});
+router.get("/", base_controller.deliver_name);
 
 module.exports = router;
