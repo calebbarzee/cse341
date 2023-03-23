@@ -1,0 +1,5 @@
+// Localhost GET all
+http://localhost:8080/contacts
+
+// Localhost GET by id
+http://localhost:8080/contacts/641c998a0a21f3ee95b5817a
