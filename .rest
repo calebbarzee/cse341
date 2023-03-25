@@ -3,3 +3,9 @@ http://localhost:8080/contacts
 
 // Localhost GET by id
 http://localhost:8080/contacts/641c998a0a21f3ee95b5817a
+
+// Render GET all
+https://web-backend-ii-2023.onrender.com/contacts
+
+// Render GET by id
+https://web-backend-ii-2023.onrender.com/contacts/641c998a0a21f3ee95b5817a
