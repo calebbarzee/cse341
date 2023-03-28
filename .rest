@@ -1,11 +1,79 @@
-// Localhost GET all
-http://localhost:8080/contacts
+###
+//Localhost GET all
+GET http://localhost:8080/contacts
 
-// Localhost GET by id
-http://localhost:8080/contacts/641c998a0a21f3ee95b5817a
+###
+//Localhost GET by id
+GET http://localhost:8080/contacts/641c998a0a21f3ee95b5817a
 
-// Render GET all
-https://web-backend-ii-2023.onrender.com/contacts
+###
+//Localhost POST
+POST http://localhost:8080/contacts/new HTTP/1.1
+//req headers
+Content-Type: application/json
+//req body
 
-// Render GET by id
-https://web-backend-ii-2023.onrender.com/contacts/641c998a0a21f3ee95b5817a
+{
+"firstName":"james",
+"lastName":"jingleheimer",
+"favoriteColor":"blue",
+"email":"jingleheimerj@gmail.com",
+"birthday":"06/20/1982"
+}
+
+### 
+//Localhost DELETE
+DELETE http://localhost:8080/contacts/64235d76e605f655d6508749
+
+###
+//Localhost PUT
+PUT http://localhost:8080/contacts/64235d79e605f655d650874a HTTP/1.1
+//req headers
+Content-Type: application/json
+//req body
+
+{
+"firstName":"jacob",
+"favoriteColor":"red",
+"birthday":"07/10/1991"
+}
+
+###
+//Render GET all
+GET https://web-backend-ii-2023.onrender.com/contacts
+
+###
+//Render GET by id
+GET https://web-backend-ii-2023.onrender.com/contacts/641c998a0a21f3ee95b5817a
+
+###
+//Render POST
+POST https://web-backend-ii-2023.onrender.com/contacts/new HTTP/1.1
+//req headers
+Content-Type: application/json
+//req body
+
+{
+"firstName":"james",
+"lastName":"jingleheimer",
+"favoriteColor":"blue",
+"email":"jingleheimerj@gmail.com",
+"birthday":"06/20/1982"
+}
+
+### 
+//Render DELETE
+DELETE https://web-backend-ii-2023.onrender.com/contacts/64235d76e605f655d6508749
+
+###
+//Render PUT
+PUT https://web-backend-ii-2023.onrender.com/contacts/64235d79e605f655d650874a HTTP/1.1
+//req headers
+Content-Type: application/json
+//req body
+
+{
+"firstName":"jacob",
+"favoriteColor":"red",
+"birthday":"07/10/1991"
+}
