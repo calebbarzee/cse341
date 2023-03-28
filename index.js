@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const mongoDB = require("./config/db.js");
+const mongoDB = require("./src/config/db.js");
 
 // identify src as root
 app.use(express.static("src"));
@@ -14,8 +14,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 
-app.use("/", require("./routes/base_route.js"));
-app.use("/contacts", require("./routes/contacts.js"));
+app.use("/", require("./src/routes/base_route.js"));
+app.use("/contacts", require("./src/routes/contacts.js"));
 
 mongoDB.initDB((err) => {
 	if (err) {
