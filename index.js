@@ -5,10 +5,13 @@ const { initDB } = require("./src/config/db.js");
 // middleware
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const swaggerUI = require("swagger-ui-express");
+const swaggerDocument = require("./swagger.json");
 
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
 app.use("/contacts", require("./src/routes/contacts.js"));
 

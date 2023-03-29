@@ -23,11 +23,11 @@ Content-Type: application/json
 
 ### 
 //Localhost DELETE
-DELETE http://localhost:8080/contacts/64235d76e605f655d6508749
+DELETE http://localhost:8080/contacts/6423b3e84ab4c294156a1a82
 
 ###
 //Localhost PUT
-PUT http://localhost:8080/contacts/64235d79e605f655d650874a HTTP/1.1
+PUT http://localhost:8080/contacts/6423b2f080eb2b1178972a7e HTTP/1.1
 //req headers
 Content-Type: application/json
 //req body
@@ -40,7 +40,7 @@ Content-Type: application/json
 
 ###
 //Render GET all
-GET https://web-backend-ii-2023.onrender.com/contacts
+GET https://web-backend-ii-2023.onrender.com/contacts/all
 
 ###
 //Render GET by id
@@ -63,11 +63,11 @@ Content-Type: application/json
 
 ### 
 //Render DELETE
-DELETE https://web-backend-ii-2023.onrender.com/contacts/64235d76e605f655d6508749
+DELETE https://web-backend-ii-2023.onrender.com/contacts/6423b2f080eb2b1178972a7e
 
 ###
 //Render PUT
-PUT https://web-backend-ii-2023.onrender.com/contacts/64235d79e605f655d650874a HTTP/1.1
+PUT https://web-backend-ii-2023.onrender.com/contacts/64235d72e605f655d6508748 HTTP/1.1
 //req headers
 Content-Type: application/json
 //req body
