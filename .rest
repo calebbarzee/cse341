@@ -1,6 +1,6 @@
 ###
 //Localhost GET all
-GET http://localhost:8080/contacts
+GET http://localhost:8080/contacts/
 
 ###
 //Localhost GET by id
@@ -8,7 +8,7 @@ GET http://localhost:8080/contacts/641c998a0a21f3ee95b5817a
 
 ###
 //Localhost POST
-POST http://localhost:8080/contacts/new HTTP/1.1
+POST http://localhost:8080/contacts/ HTTP/1.1
 //req headers
 Content-Type: application/json
 //req body
@@ -40,7 +40,7 @@ Content-Type: application/json
 
 ###
 //Render GET all
-GET https://web-backend-ii-2023.onrender.com/contacts/all
+GET https://web-backend-ii-2023.onrender.com/contacts/
 
 ###
 //Render GET by id
@@ -48,7 +48,7 @@ GET https://web-backend-ii-2023.onrender.com/contacts/641c998a0a21f3ee95b5817a
 
 ###
 //Render POST
-POST https://web-backend-ii-2023.onrender.com/contacts/new HTTP/1.1
+POST https://web-backend-ii-2023.onrender.com/contacts/ HTTP/1.1
 //req headers
 Content-Type: application/json
 //req body

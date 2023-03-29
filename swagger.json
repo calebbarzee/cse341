@@ -11,7 +11,7 @@
     "https"
   ],
   "paths": {
-    "/contacts/all": {
+    "/contacts/": {
       "get": {
         "description": "Gets all contacts from the database.",
         "produces": [
@@ -21,6 +21,62 @@
         "responses": {
           "200": {
             "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "description": "Creates a new contact and adds it to the database.",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "type": "string",
+                  "example": "john"
+                },
+                "lastName": {
+                  "type": "string",
+                  "example": "doe"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "jdoe@email.com"
+                },
+                "favoriteColor": {
+                  "type": "string",
+                  "example": "blue"
+                },
+                "birthday": {
+                  "type": "string",
+                  "example": "12/25/2020"
+                }
+              },
+              "required": [
+                "firstName",
+                "lastName",
+                "email",
+                "favoriteColor",
+                "birthday"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "404": {
+            "description": "Not Found"
           }
         }
       }
@@ -113,66 +169,8 @@
           "204": {
             "description": "No Content"
           },
-          "404": {
-            "description": "Not Found"
-          }
-        }
-      }
-    },
-    "/contacts/new": {
-      "post": {
-        "description": "Creates a new contact and adds it to the database.",
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "obj",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "type": "object",
-              "properties": {
-                "firstName": {
-                  "type": "string",
-                  "example": "john"
-                },
-                "lastName": {
-                  "type": "string",
-                  "example": "doe"
-                },
-                "email": {
-                  "type": "string",
-                  "example": "jdoe@email.com"
-                },
-                "favoriteColor": {
-                  "type": "string",
-                  "example": "blue"
-                },
-                "birthday": {
-                  "type": "string",
-                  "example": "12/25/2020"
-                }
-              },
-              "required": [
-                "firstName",
-                "lastName",
-                "email",
-                "favoriteColor",
-                "birthday"
-              ]
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "201": {
-            "description": "Created"
-          },
-          "404": {
-            "description": "Not Found"
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
