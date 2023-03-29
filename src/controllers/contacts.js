@@ -92,7 +92,8 @@ const updateContact = async (req, res, next) => {
       favoriteColor: req.body.favoriteColor,
       birthday: req.body.birthday
     };
-  const result = await getDB("contactsDB").collection("contacts").updateOne({ _id: id }, contact);
+  const id = new ObjectId(req.params.id);
+  const result = await getDB("contactsDB").collection("contacts").updateOne({ _id: id }, {$set: contact});
     if (result.modifiedCount <= 0) {
       res.status(500);
       res.send("Error updating document.");

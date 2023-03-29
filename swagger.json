@@ -5,10 +5,10 @@
     "description": "Allows you to manage your contacts.",
     "version": "1.0.0"
   },
-  "host": "web-backend-ii-2023.onrender.com",
+  "host": "localhost:8080",
   "basePath": "/",
   "schemes": [
-    "https"
+    "http"
   ],
   "paths": {
     "/contacts/all": {
