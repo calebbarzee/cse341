@@ -11,8 +11,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 
-app.use("/", require("/routes/base_route.js"));
-app.use("/contacts", require("/routes/contacts.js"));
+app.use("/", require("./routes/base_route.js"));
+app.use("/contacts", require("./routes/contacts.js"));
 
 mongoDB.initDB((err) => {
 	if (err) {
