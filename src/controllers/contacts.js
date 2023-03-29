@@ -1,4 +1,4 @@
-const mongoDB = require("../config/db.js");
+const mongoDB = require("./../config/db.js");
 const ObjectId = require("mongoDB").ObjectId;
 
 // GET
