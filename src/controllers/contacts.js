@@ -41,16 +41,15 @@ const createContact = async (req, res, next) => {
       },
     }
   */
-  const contacts = await getDB("contactsDB").collection("contacts").insertOne(req.body, (err) => {
-  if (err) {
+  const result = await getDB("contactsDB").collection("contacts").insertOne(req.body);
+  if (!result.acknowledged) {
     res.status(404);
     res.send("Error creating document.");
   }
   else {
   res.status(201);
-  res.send(`Document created successfully, id: ${contacts.insertedId.toString()}`);
+  res.send(`Document created successfully, id: ${result.insertedId.toString()}`);
   }
-  });
 };
 
 // DELETE
@@ -58,17 +57,17 @@ const deleteContact = async (req, res, next) => {
   /* 
    #swagger.description = "Deletes a contact from the database."
   */
+ 
   const id = new ObjectId(req.params.id);
-  await getDB("contactsDB").collection("contacts").deleteOne({ _id: id }, (err) => {
-    
-    if (err) {
+  const result = await getDB("contactsDB").collection("contacts").deleteOne({ _id: id });
+    if (result.deletedCount <= 0) {
     res.status(404);
-    res.send(`Document with ID: ${req.params.id} successfully deleted.`);
-    }
-    else
-    res.status(200);
     res.send("Error deleting document.");
-  });
+  }
+  else {
+    res.status(200);
+    res.send(`Document with ID: ${req.params.id} successfully deleted.`);
+  }
 };
 
 // PUT
@@ -86,17 +85,22 @@ const updateContact = async (req, res, next) => {
       },
     }
   */
-  const id = new ObjectId(req.params.id);
-  await getDB("contactsDB").collection("contacts").updateOne({ _id: id }, { $set: req.body }, (err) => {
-      if (err) {
-        res.status(404);
-        res.send("Error updating document.");
-      }
-      else {
-        res.status(204);
-        res.send(`Document with ID: ${req.params.id} successfully updated.`);
-      }
-  });
+  const contact = {
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      email: req.body.email,
+      favoriteColor: req.body.favoriteColor,
+      birthday: req.body.birthday
+    };
+  const result = await getDB("contactsDB").collection("contacts").updateOne({ _id: id }, contact);
+    if (result.modifiedCount <= 0) {
+      res.status(500);
+      res.send("Error updating document.");
+    }
+    else {
+      res.status(204);
+      res.send(`Document with ID: ${req.params.id} successfully updated.`);
+    }
 };
 
 module.exports = { getAllContacts, getContact, createContact, deleteContact, updateContact };
