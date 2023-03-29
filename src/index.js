@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const mongoDB = require("./src/config/db.js");
+const mongoDB = require("./config/db.js");
 
 // identify src as root
 app.use(express.static("src"));
