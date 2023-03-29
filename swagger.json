@@ -6,7 +6,7 @@
     "version": "1.0.0"
   },
   "host": "web-backend-ii-2023.onrender.com",
-  "basePath": "/",
+  "basePath": "",
   "schemes": [
     "https"
   ],
@@ -46,7 +46,7 @@
         }
       },
       "delete": {
-        "description": "",
+        "description": "Deletes a contact from the database.",
         "parameters": [
           {
             "name": "id",
@@ -65,8 +65,8 @@
         }
       },
       "put": {
-        "description": "",
-        "produces": [
+        "description": "Updates a contact in the database.",
+        "consumes": [
           "application/json"
         ],
         "parameters": [
@@ -75,28 +75,99 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "Updates the specified fields.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "type": "string",
+                  "example": "jane"
+                },
+                "lastName": {
+                  "type": "string",
+                  "example": "doe"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "jdoe@email.com"
+                },
+                "favoriteColor": {
+                  "type": "string",
+                  "example": "orange"
+                },
+                "birthday": {
+                  "type": "string",
+                  "example": "01/01/1010"
+                }
+              }
+            }
           }
         ],
         "responses": {
           "204": {
-            "description": "No Content"
+            "description": "Successfully updated contact."
           },
           "404": {
-            "description": "Not Found"
+            "description": "Unable to update contact."
           }
         }
       }
     },
     "/contacts/new": {
       "post": {
-        "description": "",
-        "parameters": [],
+        "description": "Creates a new contact and adds it to the database.",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "type": "string",
+                  "example": "john"
+                },
+                "lastName": {
+                  "type": "string",
+                  "example": "doe"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "jdoe@email.com"
+                },
+                "favoriteColor": {
+                  "type": "string",
+                  "example": "blue"
+                },
+                "birthday": {
+                  "type": "string",
+                  "example": "12/25/2020"
+                }
+              },
+              "required": [
+                "firstName",
+                "lastName",
+                "email",
+                "favoriteColor",
+                "birthday"
+              ]
+            }
+          }
+        ],
         "responses": {
           "201": {
             "description": "Created"
           },
           "404": {
-            "description": "Not Found"
+            "description": "Unable to create contact."
           }
         }
       }
