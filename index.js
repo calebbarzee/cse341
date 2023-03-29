@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const mongoDB = require("./src/config/db.js");
+const { initDB } = require("./src/config/db.js");
 
 // middleware
 const cors = require("cors");
@@ -10,11 +10,9 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-
-app.use("/", require("./src/routes/base_route.js"));
 app.use("/contacts", require("./src/routes/contacts.js"));
 
-mongoDB.initDB((err) => {
+initDB((err) => {
 	if (err) {
 		console.log("Error connecting to database.");
 	} else {
