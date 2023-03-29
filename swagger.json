@@ -6,14 +6,14 @@
     "version": "1.0.0"
   },
   "host": "web-backend-ii-2023.onrender.com",
-  "basePath": "",
+  "basePath": "/",
   "schemes": [
     "https"
   ],
   "paths": {
     "/contacts/all": {
       "get": {
-        "description": "",
+        "description": "Gets all contacts from the database.",
         "produces": [
           "application/json"
         ],
@@ -27,7 +27,7 @@
     },
     "/contacts/{id}": {
       "get": {
-        "description": "",
+        "description": "Gets a contact from the database.",
         "produces": [
           "application/json"
         ],
@@ -79,7 +79,6 @@
           {
             "name": "obj",
             "in": "body",
-            "description": "Updates the specified fields.",
             "schema": {
               "type": "object",
               "properties": {
@@ -108,11 +107,14 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "OK"
+          },
           "204": {
-            "description": "Successfully updated contact."
+            "description": "No Content"
           },
           "404": {
-            "description": "Unable to update contact."
+            "description": "Not Found"
           }
         }
       }
@@ -163,11 +165,14 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "OK"
+          },
           "201": {
             "description": "Created"
           },
           "404": {
-            "description": "Unable to create contact."
+            "description": "Not Found"
           }
         }
       }
